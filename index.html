@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Darshan Thoogudeepa | D Boss - Official Profile</title>
+
+  <!-- Professional Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Montserrat", sans-serif;
+      background: linear-gradient(135deg, #f7fbff, #eef7ff, #ffffff);
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    /* BACKGROUND DECOR */
+    .bg-shape1, .bg-shape2{
+      position:fixed;
+      border-radius:50%;
+      z-index:-2;
+      filter: blur(80px);
+      opacity:0.55;
+    }
+
+    .bg-shape1{
+      width:400px;
+      height:400px;
+      background: rgba(0,140,255,0.45);
+      top:-120px;
+      left:-120px;
+    }
+
+    .bg-shape2{
+      width:450px;
+      height:450px;
+      background: rgba(255,190,0,0.45);
+      bottom:-150px;
+      right:-150px;
+    }
+
+    /* HEADER */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:18px 70px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      z-index:200;
+    }
+
+    header h2{
+      font-family:"Playfair Display", serif;
+      font-size:2rem;
+      font-weight:800;
+      color:#0057ff;
+      letter-spacing:1px;
+      cursor:pointer;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:16px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#111;
+      font-weight:600;
+      padding:10px 14px;
+      border-radius:10px;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    nav ul li a:hover{
+      background:#0057ff;
+      color:white;
+      transform: translateY(-2px);
+      box-shadow: 0px 10px 25px rgba(0,87,255,0.25);
+    }
+
+    nav ul li a.active{
+      background:#0057ff;
+      color:white;
+    }
+
+    .menu-btn{
+      display:none;
+      font-size:2rem;
+      cursor:pointer;
+      user-select:none;
+      color:#0057ff;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:120px 70px 70px;
+      gap:40px;
+    }
+
+    .hero-left{
+      flex:1;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero-left h1{
+      font-family:"Playfair Display", serif;
+      font-size:4.2rem;
+      font-weight:900;
+      color:#111;
+      line-height:1.1;
+    }
+
+    .hero-left h1 span{
+      color:#0057ff;
+    }
+
+    .hero-left p{
+      margin-top:18px;
+      font-size:1.15rem;
+      color:#444;
+      line-height:1.8;
+      max-width:600px;
+    }
+
+    .hero-badges{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      padding:8px 14px;
+      border-radius:30px;
+      background: rgba(0,87,255,0.1);
+      border:1px solid rgba(0,87,255,0.15);
+      font-weight:700;
+      color:#0057ff;
+      font-size:0.9rem;
+    }
+
+    .hero-buttons{
+      margin-top:25px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:12px 24px;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:1rem;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background: linear-gradient(90deg, #0057ff, #00b3ff);
+      color:white;
+      box-shadow: 0px 12px 30px rgba(0,87,255,0.25);
+    }
+
+    .btn-primary:hover{
+      transform: scale(1.07);
+    }
+
+    .btn-outline{
+      background:white;
+      border:2px solid rgba(0,87,255,0.4);
+      color:#0057ff;
+    }
+
+    .btn-outline:hover{
+      transform: scale(1.07);
+      background: rgba(0,87,255,0.07);
+    }
+
+    .hero-right{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      animation: floatImage 4s infinite alternate ease-in-out;
+    }
+
+    .hero-card{
+      width:380px;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow: 0px 18px 50px rgba(0,0,0,0.18);
+      border:6px solid rgba(255,255,255,0.9);
+      background:white;
+    }
+
+    .hero-card img{
+      width:100%;
+      height:480px;
+      object-fit:cover;
+      object-position:top;
+      display:block;
+    }
+
+    @keyframes floatImage{
+      from{ transform: translateY(0px); }
+      to{ transform: translateY(-15px); }
+    }
+
+    @keyframes fadeUp{
+      from{ opacity:0; transform: translateY(70px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* SECTIONS */
+    section{
+      padding:90px 70px;
+    }
+
+    .title{
+      text-align:center;
+      font-family:"Playfair Display", serif;
+      font-size:2.8rem;
+      font-weight:800;
+      color:#111;
+      margin-bottom:12px;
+    }
+
+    .title span{
+      color:#0057ff;
+    }
+
+    .subtitle{
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+      color:#444;
+      font-size:1.1rem;
+      line-height:1.8;
+    }
+
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform: translateY(60px);
+      transition: 1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform: translateY(0px);
+    }
+
+    /* ABOUT SECTION */
+    .about-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:30px;
+      align-items:start;
+    }
+
+    .about-text{
+      font-size:1.08rem;
+      line-height:1.9;
+      color:#333;
+      background: rgba(255,255,255,0.75);
+      padding:28px;
+      border-radius:20px;
+      box-shadow: 0px 15px 40px rgba(0,0,0,0.06);
+      border:1px solid rgba(0,0,0,0.06);
+    }
+
+    .about-text b{
+      color:#0057ff;
+    }
+
+    .about-info{
+      background: linear-gradient(135deg, #0057ff, #00b3ff);
+      padding:25px;
+      border-radius:20px;
+      color:white;
+      box-shadow: 0px 18px 40px rgba(0,87,255,0.25);
+    }
+
+    .about-info h3{
+      font-size:1.4rem;
+      font-weight:800;
+      margin-bottom:15px;
+      font-family:"Playfair Display", serif;
+    }
+
+    .info-box{
+      background: rgba(255,255,255,0.15);
+      padding:12px;
+      border-radius:12px;
+      margin-bottom:12px;
+      font-size:0.95rem;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,0.25);
+    }
+
+    /* JOURNEY SECTION */
+    .journey-container{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .journey-image{
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow: 0px 18px 50px rgba(0,0,0,0.12);
+      border:6px solid rgba(255,255,255,0.9);
+      background:white;
+    }
+
+    .journey-image img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      object-position:top;
+      display:block;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .timeline-card{
+      background:white;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow: 0px 12px 35px rgba(0,0,0,0.06);
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .timeline-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+      width:5px;
+      background: linear-gradient(to bottom, #0057ff, #ffbf00);
+    }
+
+    .timeline-card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0px 18px 45px rgba(0,87,255,0.12);
+    }
+
+    .timeline-card h3{
+      color:#0057ff;
+      font-weight:800;
+      font-size:1.15rem;
+    }
+
+    .timeline-card p{
+      margin-top:6px;
+      color:#444;
+      font-size:0.95rem;
+      line-height:1.6;
+    }
+
+    /* FAN LOVE SECTION */
+    .fanlove{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:35px;
+      align-items:center;
+    }
+
+    .fanlove-img{
+      border-radius:22px;
+      overflow:hidden;
+      border:6px solid rgba(255,255,255,0.95);
+      box-shadow: 0px 18px 55px rgba(0,0,0,0.15);
+      background:white;
+    }
+
+    .fanlove-img img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+
+    .fanlove-text{
+      background:white;
+      border-radius:22px;
+      padding:30px;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow: 0px 15px 40px rgba(0,0,0,0.06);
+    }
+
+    .fanlove-text h3{
+      font-family:"Playfair Display", serif;
+      font-size:2rem;
+      color:#0057ff;
+      margin-bottom:12px;
+    }
+
+    .fanlove-text p{
+      font-size:1.05rem;
+      color:#444;
+      line-height:1.9;
+    }
+
+    .fanlove-text .quote{
+      margin-top:18px;
+      padding:16px;
+      border-radius:16px;
+      background: rgba(0,87,255,0.08);
+      border:1px solid rgba(0,87,255,0.15);
+      font-weight:700;
+      color:#0057ff;
+      line-height:1.6;
+    }
+
+    /* MOVIES SECTION */
+    .movie-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap:18px;
+    }
+
+    .movie-card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.08);
+      box-shadow: 0px 14px 40px rgba(0,0,0,0.06);
+      transition:0.35s;
+    }
+
+    .movie-card:hover{
+      transform: translateY(-10px);
+      box-shadow: 0px 18px 45px rgba(0,87,255,0.15);
+      border-color: rgba(0,87,255,0.3);
+    }
+
+    .movie-card .movie-top{
+      background: linear-gradient(135deg, #0057ff, #00b3ff);
+      padding:18px;
+      color:white;
+      font-weight:800;
+      font-size:1.05rem;
+    }
+
+    .movie-card .movie-body{
+      padding:16px;
+      color:#333;
+      font-size:0.95rem;
+      line-height:1.6;
+    }
+
+    /* GALLERY */
+    .gallery-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:16px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      object-position:top;
+      border-radius:20px;
+      cursor:pointer;
+      border:4px solid rgba(255,255,255,0.9);
+      box-shadow: 0px 15px 45px rgba(0,0,0,0.12);
+      transition:0.35s;
+    }
+
+    .gallery-grid img:hover{
+      transform: scale(1.05);
+      box-shadow: 0px 18px 55px rgba(0,87,255,0.2);
+    }
+
+    /* MODAL */
+    .modal{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100vh;
+      background: rgba(0,0,0,0.85);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      padding:20px;
+    }
+
+    .modal img{
+      max-width:800px;
+      width:100%;
+      border-radius:20px;
+      border:6px solid white;
+      animation: zoomIn 0.4s ease;
+    }
+
+    @keyframes zoomIn{
+      from{ transform:scale(0.7); opacity:0; }
+      to{ transform:scale(1); opacity:1; }
+    }
+
+    /* FOOTER */
+    footer{
+      padding:30px;
+      text-align:center;
+      background: rgba(255,255,255,0.8);
+      border-top:1px solid rgba(0,0,0,0.08);
+      color:#333;
+      font-weight:600;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:950px){
+      header{ padding:18px 20px; }
+      section{ padding:80px 20px; }
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-left h1{
+        font-size:3rem;
+      }
+
+      .hero-right{
+        margin-top:20px;
+      }
+
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .journey-container{
+        grid-template-columns:1fr;
+      }
+
+      .fanlove{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        width:100%;
+        max-width:380px;
+      }
+
+      nav ul{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        right:20px;
+        width:220px;
+        background:white;
+        padding:15px;
+        border-radius:15px;
+        border:1px solid rgba(0,0,0,0.1);
+        box-shadow: 0px 18px 40px rgba(0,0,0,0.12);
+      }
+
+      nav ul.show{
+        display:flex;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .gallery-grid img{
+        height:250px;
+      }
+
+      .journey-image img,
+      .fanlove-img img{
+        height:280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-shape1"></div>
+  <div class="bg-shape2"></div>
+
+  <!-- HEADER -->
+  <header>
+    <h2 onclick="window.location.href='#home'">PORTFOLIO</h2>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <nav>
+      <ul id="menu">
+        <li><a href="#home" class="nav-link active" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" class="nav-link" onclick="closeMenu()">About</a></li>
+        <li><a href="#journey" class="nav-link" onclick="closeMenu()">Journey</a></li>
+        <li><a href="#fanlove" class="nav-link" onclick="closeMenu()">Fans</a></li>
+        <li><a href="#movies" class="nav-link" onclick="closeMenu()">Movies</a></li>
+        <li><a href="#gallery" class="nav-link" onclick="closeMenu()">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <div class="hero-left">
+      <h1>Darshan <span>Thoogudeepa</span></h1>
+      <p>
+        Popularly known as <b>D Boss</b>, Darshan is one of the biggest superstars of Kannada Cinema.
+        With his powerful action roles and mass fan base, he became an icon in Sandalwood.
+      </p>
+
+      <div class="hero-badges">
+        <div class="badge">⭐ Superstar</div>
+        <div class="badge">🎬 Actor</div>
+        <div class="badge">🏆 Mass Hero</div>
+        <div class="badge">🔥 D Boss</div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="#about"><button class="btn btn-primary">Explore Profile</button></a>
+        <a href="#movies"><button class="btn btn-outline">View Movies</button></a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="https://i.pinimg.com/originals/b4/b1/c9/b4b1c993a4d26182000176363832f45c.jpg" alt="Darshan">
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="title reveal">About <span>Darshan</span></h2>
+    <p class="subtitle reveal">
+      Darshan Thoogudeepa is an Indian actor, producer, and distributor known for his blockbuster films
+      and massive popularity in Kannada cinema.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Darshan was born in <b>Mysore, Karnataka</b>. He started his career from small television roles and later
+          entered the Kannada film industry.
+        </p>
+        <br>
+        <p>
+          His breakthrough film <b>Majestic (2002)</b> made him a star. Since then, he delivered multiple blockbuster films
+          like <b>Krantiveera Sangolli Rayanna</b>, <b>Yajamana</b>, <b>Roberrt</b>, and more.
+        </p>
+        <br>
+        <p>
+          Darshan is respected for his screen presence, action performance, and emotional roles.
+          He is considered one of the biggest mass heroes in Sandalwood.
+        </p>
+      </div>
+
+      <div class="about-info reveal">
+        <h3>Quick Facts</h3>
+        <div class="info-box">📌 <b>Born:</b> 16 February 1977</div>
+        <div class="info-box">📍 <b>Place:</b> Mysore, Karnataka</div>
+        <div class="info-box">🎬 <b>Debut:</b> Majestic (2002)</div>
+        <div class="info-box">🔥 <b>Nickname:</b> D Boss</div>
+        <div class="info-box">⭐ <b>Industry:</b> Kannada Cinema</div>
+        <div class="info-box">🏆 <b>Known For:</b> Action & Mass Films</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <h2 class="title reveal">Journey of <span>D Boss</span></h2>
+    <p class="subtitle reveal">
+      From working behind the scenes as a light boy to becoming the Superstar of Kannada cinema,
+      Darshan's journey is inspiring.
+    </p>
+
+    <div class="journey-container">
+      <div class="journey-image reveal">
+        <img src="https://wallpapercave.com/wp/wp7621987.jpg" alt="Darshan Journey">
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-card reveal">
+          <h3>💡 Early Days (Light Boy)</h3>
+          <p>
+            Darshan began his journey by working in the Kannada film industry as a <b>light boy</b>,
+            gaining practical knowledge and understanding cinema from the ground level.
+          </p>
+        </div>
+
+        <div class="timeline-card reveal">
+          <h3>📺 Television & Small Roles</h3>
+          <p>
+            He worked in television and took small acting roles, slowly building confidence and improving his skills.
+          </p>
+        </div>
+
+        <div class="timeline-card reveal">
+          <h3>🎬 Breakthrough (Majestic - 2002)</h3>
+          <p>
+            The blockbuster film <b>Majestic</b> turned him into a rising star and changed his career forever.
+          </p>
+        </div>
+
+        <div class="timeline-card reveal">
+          <h3>🔥 Mass Hero Era</h3>
+          <p>
+            With continuous hits, Darshan became a mass action hero, delivering fan-favorite blockbusters.
+          </p>
+        </div>
+
+        <div class="timeline-card reveal">
+          <h3>👑 Superstar & Icon</h3>
+          <p>
+            Today, Darshan is one of Kannada cinema’s biggest icons, known for his screen presence and massive fanbase.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAN LOVE -->
+  <section id="fanlove">
+    <h2 class="title reveal">Darshan & <span>His Fans</span></h2>
+    <p class="subtitle reveal">
+      Darshan is not just a superstar, he is an emotion for millions of fans. His love and respect towards his fanbase
+      is one of the strongest reasons behind his success.
+    </p>
+
+    <div class="fanlove">
+      <div class="fanlove-img reveal">
+        <!-- ADD YOUR IMAGE HERE -->
+        <img src="WhatsApp Image 2026-02-16 at 7.11.30 AM.jpeg" alt="Darshan Love Towards Fans">
+      </div>
+
+      <div class="fanlove-text reveal">
+        <h3>❤️ Love Towards Fans</h3>
+        <p>
+          Darshan is known for his strong bond with fans. His fanbase is one of the biggest in Karnataka,
+          and his followers proudly call him <b>D Boss</b>.
+        </p>
+        <br>
+        <p>
+          Whether it is movie celebrations, fan meets, or public appearances, Darshan always shows gratitude
+          and respect towards his fans. His humility and connection with people makes him not just an actor,
+          but a true inspiration.
+        </p>
+
+        <div class="quote">
+          "A true hero is not made by movies, he is made by the love of his fans."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOVIES -->
+  <section id="movies">
+    <h2 class="title reveal">Popular <span>Movies</span></h2>
+    <p class="subtitle reveal">
+      Here is a professional list of Darshan’s blockbuster and fan-favorite films.
+    </p>
+
+    <div class="movie-grid">
+      <div class="movie-card reveal"><div class="movie-top">Majestic (2002)</div><div class="movie-body">Breakthrough movie that made Darshan a star.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Kalashnikov (2003)</div><div class="movie-body">Popular action film that boosted his mass image.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Thangigagi (2006)</div><div class="movie-body">Emotional action drama loved by family audience.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Anatharu (2007)</div><div class="movie-body">Mass entertainer that strengthened his fanbase.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Saarathi (2011)</div><div class="movie-body">Blockbuster film with high commercial success.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Krantiveera Sangolli Rayanna (2012)</div><div class="movie-body">Historic blockbuster & iconic performance.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Bulbul (2013)</div><div class="movie-body">Stylish action entertainer with mass appeal.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Ambareesha (2014)</div><div class="movie-body">One of the major action entertainers.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Mr. Airavata (2015)</div><div class="movie-body">Powerful action drama, fan favorite.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Jaggu Dada (2016)</div><div class="movie-body">High budget mass entertainer.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Tarak (2017)</div><div class="movie-body">Commercial success with emotional storyline.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Chakravarthy (2017)</div><div class="movie-body">Mass film with strong box office collection.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Yajamana (2019)</div><div class="movie-body">Mass blockbuster that became a huge hit.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Roberrt (2021)</div><div class="movie-body">Action packed blockbuster, huge collections.</div></div>
+      <div class="movie-card reveal"><div class="movie-top">Kaatera (2023)</div><div class="movie-body">Powerful movie & major box office success.</div></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2 class="title reveal">Image <span>Gallery</span></h2>
+    <p class="subtitle reveal">
+      Premium photo collection with perfect alignment and professional display.
+    </p>
+
+    <div class="gallery-grid">
+      <img class="reveal" src="https://wallpapercave.com/wp/wp7621987.jpg" onclick="openModal(this.src)">
+      <img class="reveal" src="https://i.pinimg.com/originals/89/49/7f/89497ff4f9c5423998085ed7f5f140db.jpg" onclick="openModal(this.src)">
+      <img class="reveal" src="https://i.pinimg.com/originals/b4/b1/c9/b4b1c993a4d26182000176363832f45c.jpg" onclick="openModal(this.src)">
+      <img class="reveal" src="C:\Users\Darshan gowda\Downloads\HD-wallpaper-d-boss-boss-background-darshan-thoogudeepa-actor.jpg" onclick="openModal(this.src)">
+      
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Darshan Premium Website | Bright UI | Responsive Mobile Design
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    // Scroll reveal animation
+    function revealOnScroll(){
+      let reveals = document.querySelectorAll(".reveal");
+      reveals.forEach((el)=>{
+        let windowHeight = window.innerHeight;
+        let elementTop = el.getBoundingClientRect().top;
+        let visiblePoint = 120;
+
+        if(elementTop < windowHeight - visiblePoint){
+          el.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Modal Gallery
+    function openModal(src){
+      document.getElementById("modal").style.display="flex";
+      document.getElementById("modalImg").src = src;
+    }
+    function closeModal(){
+      document.getElementById("modal").style.display="none";
+    }
+
+    // Mobile menu
+    function toggleMenu(){
+      document.getElementById("menu").classList.toggle("show");
+    }
+    function closeMenu(){
+      document.getElementById("menu").classList.remove("show");
+    }
+
+    // Active navbar highlight
+    const sections = document.querySelectorAll("section, .hero");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", ()=>{
+      let current = "home";
+      sections.forEach((section)=>{
+        const sectionTop = section.offsetTop - 160;
+        if(scrollY >= sectionTop){
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link=>{
+        link.classList.remove("active");
+        if(link.getAttribute("href") === "#" + current){
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
